@@ -1,0 +1,130 @@
+/* styles.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.booking-page {
+    width: 600px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #c46a48;
+    color: #fff;
+    padding: 10px;
+}
+
+.step {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.room-info h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.room-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.close-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.availability-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.availability-btn {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.additional-services {
+    padding: 20px;
+}
+
+.additional-services h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.services label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.service-dates {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.service-dates input,
+.service-dates select {
+    padding: 8px;
+    font-size: 14px;
+    width: 150px;
+}
+
+.proceed-btn {
+    padding: 10px 20px;
+    background-color: #c46a48;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer .step {
+    font-size: 24px;
+    font-weight: bold;
+    color: #c46a48;
+    margin-right: 10px;
+}
