@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Interface Example</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Simple CRUD Interface</h1>
+
+    <form id="crud-form">
+        <input type="text" id="name-input" placeholder="Enter name" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <table id="crud-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script>
+        const form = document.getElementById('crud-form');
+        const tableBody = document.querySelector('#crud-table tbody');
+        const nameInput = document.getElementById('name-input');
+        let data = [];
+        let editIndex = -1;
+
+        // Function to render table rows
+        function renderTable() {
+            tableBody.innerHTML = ''; // Clear existing table rows
+
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${item}</td>
+                    <td>
+                        <button onclick="editItem(${index})">Edit</button>
+                        <button onclick="deleteItem(${index})">Delete</button>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Add or update item
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = nameInput.value.trim();
+            if (name === '') return;
+
+            if (editIndex === -1) {
+                // Create item
+                data.push(name);
+            } else {
+                // Update item
+                data[editIndex] = name;
+                editIndex = -1;
+            }
+
+            nameInput.value = '';
+            renderTable();
+        });
+
+        // Edit item
+        window.editItem = function (index) {
+            nameInput.value = data[index];
+            editIndex = index;
+        }
+
+        // Delete item
+        window.deleteItem = function (index) {
+            data.splice(index, 1);
+            renderTable();
+        }
+    </script>
+</body>
+
+</html>
